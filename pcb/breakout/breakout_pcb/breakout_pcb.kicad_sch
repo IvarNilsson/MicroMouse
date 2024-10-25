@@ -5640,6 +5640,12 @@
 			(uuid "a206b3b0-c5a8-45b4-8271-5844dd5efeda")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "C3")
+					(unit 1)
+				)
+			)
 			(project "MicroMouse_pcb_v1"
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "C3")
@@ -5658,7 +5664,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "248e07b7-f06d-4845-819c-634dcfbc5f65")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR0105"
 			(at 58.42 116.84 0)
 			(effects
 				(font
@@ -5706,6 +5712,12 @@
 			(uuid "836b3d43-55fd-4691-9c47-9a5c8b657ab6")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "#PWR0105")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "#PWR04")
@@ -5773,6 +5785,12 @@
 			(uuid "1fa48489-337a-428a-bd7e-8d0457448ab4")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "F1")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "F1")
@@ -5791,7 +5809,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "284c7bf2-e358-4ae2-91e9-7bba69ea51a7")
-		(property "Reference" "U3"
+		(property "Reference" "U1"
 			(at 58.42 82.55 0)
 			(effects
 				(font
@@ -5844,6 +5862,12 @@
 			(uuid "a93c2954-deb0-4875-ab36-f339503c8dc5")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "U1")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "U3")
@@ -5913,6 +5937,12 @@
 			(uuid "026a6f66-707e-49b1-afde-2bff8004dbc2")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "R2")
+					(unit 1)
+				)
+			)
 			(project "MicroMouse_pcb_v1"
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "R2")
@@ -5930,7 +5960,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "37448727-46c1-4acc-809c-b4dc6f92cbf2")
-		(property "Reference" "D2"
+		(property "Reference" "D1"
 			(at 252.984 44.704 90)
 			(effects
 				(font
@@ -5982,6 +6012,12 @@
 			(uuid "3abd32c6-3059-4186-bed9-4f80a6cdb76d")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "D1")
+					(unit 1)
+				)
+			)
 			(project "MicroMouse_pcb_v1"
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "D2")
@@ -6000,7 +6036,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "402343d6-0c55-4054-b1a9-f6f9700d06be")
-		(property "Reference" "#PWR06"
+		(property "Reference" "#PWR0102"
 			(at 111.76 59.69 0)
 			(effects
 				(font
@@ -6048,6 +6084,12 @@
 			(uuid "68241d0f-c5b0-451e-a7d5-9265264d78f6")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "#PWR0102")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "#PWR06")
@@ -6066,7 +6108,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "49cfdb38-db87-4b7e-9d8b-0524052aee5d")
-		(property "Reference" "#PWR010"
+		(property "Reference" "#PWR0107"
 			(at 171.45 167.64 0)
 			(effects
 				(font
@@ -6114,6 +6156,12 @@
 			(uuid "6025a09f-ca8f-4037-acf0-018d4ab41050")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "#PWR0107")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "#PWR010")
@@ -6131,7 +6179,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "51285888-7c10-4f1a-bc98-458527505d33")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR0103"
 			(at 120.65 167.64 0)
 			(effects
 				(font
@@ -6179,6 +6227,12 @@
 			(uuid "67810caf-9b44-419c-950a-bfa75422601e")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "#PWR0103")
+					(unit 1)
+				)
+			)
 			(project "MicroMouse_pcb_v1"
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "#PWR09")
@@ -6196,7 +6250,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "58488f05-4efe-4039-bf20-df8286bf2d36")
-		(property "Reference" "#PWR07"
+		(property "Reference" "#PWR0104"
 			(at 119.38 123.19 0)
 			(effects
 				(font
@@ -6244,6 +6298,12 @@
 			(uuid "ff732410-ab89-4dbe-98da-7ba59305dd87")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "#PWR0104")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "#PWR07")
@@ -6262,7 +6322,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6a82cb86-47dd-4cee-8715-9de335c9e56b")
-		(property "Reference" "#PWR01"
+		(property "Reference" "#PWR0109"
 			(at 262.89 59.69 0)
 			(effects
 				(font
@@ -6310,6 +6370,12 @@
 			(uuid "34138f1f-271c-47d3-a7fd-0ec8378021b6")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "#PWR0109")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "#PWR01")
@@ -6327,7 +6393,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "704a7a01-b7a3-4d0e-b1e3-24c768ec1c59")
-		(property "Reference" "R1"
+		(property "Reference" "R3"
 			(at 264.414 34.29 0)
 			(effects
 				(font
@@ -6379,6 +6445,12 @@
 			(uuid "92002e9c-cd01-40f7-8618-7658819bd57d")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "R3")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "R1")
@@ -6396,7 +6468,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "91471084-8f02-4b87-83f0-980ea914a5a8")
-		(property "Reference" "C1"
+		(property "Reference" "C2"
 			(at 48.514 95.25 0)
 			(effects
 				(font
@@ -6448,6 +6520,12 @@
 			(uuid "08dde600-0e1d-4272-9dd4-8aeef10bac22")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "C2")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "C1")
@@ -6465,7 +6543,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9bf4c8bb-6780-4596-85b2-3a0dd259879d")
-		(property "Reference" "C2"
+		(property "Reference" "C1"
 			(at 29.464 95.758 0)
 			(effects
 				(font
@@ -6517,6 +6595,12 @@
 			(uuid "bc683da3-826c-4511-93a6-c0053e1015e5")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "C1")
+					(unit 1)
+				)
+			)
 			(project "MicroMouse_pcb_v1"
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "C2")
@@ -6639,6 +6723,12 @@
 			(uuid "eafb2b26-30ad-466a-b335-cbef9967ff03")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "J2")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "J2")
@@ -6657,7 +6747,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a3ac6766-dc4b-4bfc-b28a-347b251b0c6a")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR0101"
 			(at 35.56 71.12 0)
 			(effects
 				(font
@@ -6705,6 +6795,12 @@
 			(uuid "75239700-fe32-4c6f-95ca-b60b6f40bfe8")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "#PWR0101")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "#PWR03")
@@ -6782,6 +6878,12 @@
 			(uuid "a42cadb9-9c33-4209-aa1e-57c128e3650f")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "Mico_USB_Breakout1")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "Mico_USB_Breakout1")
@@ -6800,7 +6902,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b01edefc-658c-4964-8fe0-e98c6f8af5f2")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR0108"
 			(at 172.72 123.19 0)
 			(effects
 				(font
@@ -6848,6 +6950,12 @@
 			(uuid "152f0fa8-7eae-4ebd-890e-6f18d321a96a")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "#PWR0108")
+					(unit 1)
+				)
+			)
 			(project "MicroMouse_pcb_v1"
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "#PWR08")
@@ -6918,6 +7026,12 @@
 			(uuid "4d1d1359-12bf-4151-bf7a-c2eb257e21a6")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "C4")
+					(unit 1)
+				)
+			)
 			(project "MicroMouse_pcb_v1"
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "C4")
@@ -6998,6 +7112,12 @@
 			(uuid "9242a486-2476-4ef9-96b9-ea4efd220863")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "J1")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "J1")
@@ -7185,6 +7305,12 @@
 			(uuid "1a693191-2f7d-44ab-8e70-a379fb6864db")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "U2")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "U2")
@@ -7308,6 +7434,12 @@
 			(uuid "71d03e0d-9c1b-49f0-b4c2-6fa177074cf3")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "J3")
+					(unit 1)
+				)
+			)
 			(project "MicroMouse_pcb_v1"
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "J3")
@@ -7326,7 +7458,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c9837369-464a-4e48-a8b7-f5c83d9b752f")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#PWR0110"
 			(at 251.46 59.69 0)
 			(effects
 				(font
@@ -7374,6 +7506,12 @@
 			(uuid "edac9177-6741-4563-9993-5fad7f9a7cdf")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "#PWR0110")
+					(unit 1)
+				)
+			)
 			(project "MicroMouse_pcb_v1"
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "#PWR02")
@@ -7392,7 +7530,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d1016832-c0ad-4c8b-8609-46726bcf781b")
-		(property "Reference" "#PWR05"
+		(property "Reference" "#PWR0106"
 			(at 146.05 102.87 0)
 			(effects
 				(font
@@ -7440,6 +7578,12 @@
 			(uuid "d56e6e11-c1c3-469e-baa1-363a0af4ca71")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "#PWR0106")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "#PWR05")
@@ -7457,7 +7601,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e303e957-4b68-46ef-89b0-6b3ea0e6d2d7")
-		(property "Reference" "D1"
+		(property "Reference" "D2"
 			(at 264.668 44.704 90)
 			(effects
 				(font
@@ -7509,6 +7653,12 @@
 			(uuid "8ce9c56f-1387-4a94-8bf7-28a4327640ea")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "D2")
+					(unit 1)
+				)
+			)
 			(project ""
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "D1")
@@ -7526,7 +7676,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f3d89706-1ebc-4ec4-b157-35e209e4725e")
-		(property "Reference" "R3"
+		(property "Reference" "R1"
 			(at 113.284 36.83 0)
 			(effects
 				(font
@@ -7578,12 +7728,23 @@
 			(uuid "14bad696-78c5-4a7b-81f9-54b661ae81f5")
 		)
 		(instances
+			(project "breakout_pcb"
+				(path "/e5083fa8-0ef7-4956-b85b-f43be77f8073"
+					(reference "R1")
+					(unit 1)
+				)
+			)
 			(project "MicroMouse_pcb_v1"
 				(path "/edf27656-47bc-4351-b96d-7e76378cbc31/fd4eb493-81f4-493f-b2ab-0dc64d2656a2"
 					(reference "R3")
 					(unit 1)
 				)
 			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
 		)
 	)
 )

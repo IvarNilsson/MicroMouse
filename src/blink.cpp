@@ -1,6 +1,4 @@
-#include <Arduino.h>
-
-#define Serial Serial
+#include "Arduino.h"
 
 const int ledPin_0 = 38;
 
