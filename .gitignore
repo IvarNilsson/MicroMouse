@@ -1,1 +1,3 @@
 run*
+.clangd
+*.zip
