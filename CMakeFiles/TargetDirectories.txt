@@ -1,0 +1,3 @@
+/home/ivar/Projects/MicroMouse/CMakeFiles/MicroMouse.dir
+/home/ivar/Projects/MicroMouse/CMakeFiles/edit_cache.dir
+/home/ivar/Projects/MicroMouse/CMakeFiles/rebuild_cache.dir

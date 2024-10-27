@@ -37,9 +37,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.762,
-          "height": 1.524,
-          "width": 1.524
+          "drill": 1.0,
+          "height": 1.7,
+          "width": 1.7
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -51,16 +51,10 @@
           "min_clearance": 0.5
         }
       },
-      "diff_pair_dimensions": [
-        {
-          "gap": 0.0,
-          "via_gap": 0.0,
-          "width": 0.0
-        }
-      ],
+      "diff_pair_dimensions": [],
       "drc_exclusions": [
-        "lib_footprint_mismatch|315800000|307077500|987974db-7830-494e-882a-48a1db79984e|00000000-0000-0000-0000-000000000000",
-        "lib_footprint_mismatch|315800000|344225000|aba24be3-9bc1-46d2-ab9b-75236fe62090|00000000-0000-0000-0000-000000000000"
+        "lib_footprint_mismatch|128170000|118100000|10199081-d75c-4c07-8791-c9355c7d5551|00000000-0000-0000-0000-000000000000",
+        "lib_footprint_mismatch|128175000|80987500|eee453c0-2f5d-4885-899b-5c7a868b2b1b|00000000-0000-0000-0000-000000000000"
       ],
       "meta": {
         "version": 2
@@ -180,11 +174,7 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [
-        0.0,
-        0.2,
-        0.5
-      ],
+      "track_widths": [],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
           "corner_radius_percentage": 80,
@@ -211,12 +201,7 @@
           "spacing": 0.6
         }
       },
-      "via_dimensions": [
-        {
-          "diameter": 0.0,
-          "drill": 0.0
-        }
-      ],
+      "via_dimensions": [],
       "zones_allow_external_fillets": false
     },
     "ipc2581": {
@@ -435,7 +420,7 @@
       "pin_not_connected": "error",
       "pin_not_driven": "error",
       "pin_to_pin": "warning",
-      "power_pin_not_driven": "warning",
+      "power_pin_not_driven": "error",
       "similar_labels": "warning",
       "simulation_model_issue": "ignore",
       "unannotated": "error",
@@ -449,7 +434,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "MicroMouse_pcb_v1.kicad_pro",
+    "filename": "breakout_pcb.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -483,10 +468,10 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "",
+      "netlist": "../../../../../",
       "plot": "",
       "pos_files": "",
-      "specctra_dsn": "MicroMouse_pcb_v1.dsn",
+      "specctra_dsn": "",
       "step": "",
       "svg": "",
       "vrml": ""
@@ -594,20 +579,8 @@
   },
   "sheets": [
     [
-      "edf27656-47bc-4351-b96d-7e76378cbc31",
+      "e5083fa8-0ef7-4956-b85b-f43be77f8073",
       "Root"
-    ],
-    [
-      "f8684af5-e2c5-4247-84a6-0997fbd033b1",
-      "MicroMouse"
-    ],
-    [
-      "2c762ca4-05ab-4500-b1c5-2eadf767fd9c",
-      "clock"
-    ],
-    [
-      "fd4eb493-81f4-493f-b2ab-0dc64d2656a2",
-      "DevBoard"
     ]
   ],
   "text_variables": {}

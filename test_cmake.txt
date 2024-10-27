@@ -1,0 +1,51 @@
+cmake_minimum_required(VERSION 3.13)
+project(MicroMouse)
+
+set(CMAKE_CXX_STANDARD 11)
+
+# Include directories for ESP32
+include_directories(
+    /home/ivar/.arduino15/packages/esp32/hardware/esp32/3.0.5/cores/esp32/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/freertos/FreeRTOS-Kernel/include
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/freertos/esp_additions/include/freertos
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/qio_qspi/include
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/freertos/esp_additions/arch/xtensa/include
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/freertos/FreeRTOS-Kernel/portable/xtensa/include
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/xtensa/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/xtensa/esp32/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/newlib/platform_include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp-x32/2302/xtensa-esp32-elf/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/esp_hw_support/include
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/soc/esp32/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/esp_common/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/esp_system/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/heap/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/esp_rom/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/hal/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/esp_timer/include
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/log/include
+    /home/ivar/.arduino15/packages/esp32/hardware/esp32/3.0.5/variants/esp32
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/driver/gpio/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/driver/gptimer/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp-x32/2302/xtensa-esp32-elf/include/c++/12.2.0
+    /home/ivar/.arduino15/packages/esp32/tools/esp-x32/2302/xtensa-esp32-elf/include/c++/12.2.0/xtensa-esp32-elf/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/lwip/lwip/src/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/lwip/port/include
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/freertos/esp_additions/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/lwip/port/freertos/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/lwip/port/esp32xx/include/
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/esp_netif/include
+    /home/ivar/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/esp_partition/include
+)
+
+# Add source files
+set(SOURCES
+    src/blink.cpp
+    # Add other source files here...
+)
+
+# Create the executable
+add_executable(MicroMouse ${SOURCES})
+
+# Link any necessary libraries (if required)
+# target_link_libraries(MicroMouse <library_name>)

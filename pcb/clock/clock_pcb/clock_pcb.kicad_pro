@@ -59,8 +59,9 @@
         }
       ],
       "drc_exclusions": [
-        "lib_footprint_mismatch|315800000|307077500|987974db-7830-494e-882a-48a1db79984e|00000000-0000-0000-0000-000000000000",
-        "lib_footprint_mismatch|315800000|344225000|aba24be3-9bc1-46d2-ab9b-75236fe62090|00000000-0000-0000-0000-000000000000"
+        "lib_footprint_mismatch|109735000|121102500|765cd89d-0a86-4ad4-b926-63fa70fd64de|00000000-0000-0000-0000-000000000000",
+        "lib_footprint_mismatch|113730000|110555000|7ad651b8-786d-4f54-99f4-1e22c91070cc|00000000-0000-0000-0000-000000000000",
+        "lib_footprint_mismatch|113755000|102200000|66864c6f-f6e1-4a82-b9b1-0cf39454020c|00000000-0000-0000-0000-000000000000"
       ],
       "meta": {
         "version": 2
@@ -435,7 +436,7 @@
       "pin_not_connected": "error",
       "pin_not_driven": "error",
       "pin_to_pin": "warning",
-      "power_pin_not_driven": "warning",
+      "power_pin_not_driven": "error",
       "similar_labels": "warning",
       "simulation_model_issue": "ignore",
       "unannotated": "error",
@@ -449,7 +450,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "MicroMouse_pcb_v1.kicad_pro",
+    "filename": "clock_pcb.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -486,7 +487,7 @@
       "netlist": "",
       "plot": "",
       "pos_files": "",
-      "specctra_dsn": "MicroMouse_pcb_v1.dsn",
+      "specctra_dsn": "",
       "step": "",
       "svg": "",
       "vrml": ""
@@ -594,20 +595,8 @@
   },
   "sheets": [
     [
-      "edf27656-47bc-4351-b96d-7e76378cbc31",
+      "4ba683ee-53d5-4440-85dd-cef1f801b22d",
       "Root"
-    ],
-    [
-      "f8684af5-e2c5-4247-84a6-0997fbd033b1",
-      "MicroMouse"
-    ],
-    [
-      "2c762ca4-05ab-4500-b1c5-2eadf767fd9c",
-      "clock"
-    ],
-    [
-      "fd4eb493-81f4-493f-b2ab-0dc64d2656a2",
-      "DevBoard"
     ]
   ],
   "text_variables": {}
