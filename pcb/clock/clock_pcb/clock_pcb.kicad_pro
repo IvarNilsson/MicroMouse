@@ -485,7 +485,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../../all_main/production_files/clock_pcb/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",

@@ -1,3 +1,4 @@
 run*
 .clangd
 *.zip
+a.out

@@ -16,7 +16,10 @@
 
         "~/Arduino/libraries/**", // Extra installed libaries
         "~/.arduino15/packages/esp32/hardware/esp32/3.0.5/libraries/SPI/src",
-        "~/.arduino15/packages/esp32/hardware/esp32/3.0.5/libraries/Wire/src"
+        "~/.arduino15/packages/esp32/hardware/esp32/3.0.5/libraries/Wire/src",
+
+        // SFML (grapics and more)
+        "/usr/include/"
       ],
       "defines": [
         "ARDUINO=10806", // Set this based on your Arduino version

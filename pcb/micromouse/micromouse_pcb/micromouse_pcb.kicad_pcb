@@ -45,10 +45,10 @@
 			(layerselection 0x00010fc_ffffffff)
 			(plot_on_all_layers_selection 0x0000000_00000000)
 			(disableapertmacros no)
-			(usegerberextensions no)
-			(usegerberattributes yes)
-			(usegerberadvancedattributes yes)
-			(creategerberjobfile yes)
+			(usegerberextensions yes)
+			(usegerberattributes no)
+			(usegerberadvancedattributes no)
+			(creategerberjobfile no)
 			(dashed_line_dash_ratio 12.000000)
 			(dashed_line_gap_ratio 3.000000)
 			(svgprecision 4)
@@ -67,16 +67,16 @@
 			(psnegative no)
 			(psa4output no)
 			(plotreference yes)
-			(plotvalue yes)
+			(plotvalue no)
 			(plotfptext yes)
 			(plotinvisibletext no)
 			(sketchpadsonfab no)
-			(subtractmaskfromsilk no)
+			(subtractmaskfromsilk yes)
 			(outputformat 1)
 			(mirror no)
-			(drillshape 1)
+			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "")
+			(outputdirectory "../../all_main/production_files/micromouse_pcb/")
 		)
 	)
 	(net 0 "")
@@ -3513,7 +3513,7 @@
 			(at 0 -4.2 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "a7e0525f-1e2c-4113-9028-f1119b352808")
+			(uuid "8ec1534b-09e2-4457-bf26-c9c72f81feee")
 			(effects
 				(font
 					(size 1 1)
@@ -3524,7 +3524,7 @@
 		(property "Value" "MountingHole_3.2mm_M3"
 			(at 0 4.2 0)
 			(layer "F.Fab")
-			(uuid "449d5001-f9ad-4ba3-92ed-92550e9109d2")
+			(uuid "af8edd4b-c156-4d4a-bbf7-2d9859ab4ca8")
 			(effects
 				(font
 					(size 1 1)
@@ -3581,7 +3581,7 @@
 			)
 			(fill none)
 			(layer "Cmts.User")
-			(uuid "b3da11d2-b202-41e1-9ab6-247cb24a5c4b")
+			(uuid "d80a27f0-9432-4406-8ac4-a023052a2b0d")
 		)
 		(fp_circle
 			(center 0 0)
@@ -3592,12 +3592,12 @@
 			)
 			(fill none)
 			(layer "F.CrtYd")
-			(uuid "c6ef4675-4c2c-49ea-bc5e-ee2c25627bdf")
+			(uuid "cc2024c8-aa68-4817-b448-43ea6442fa0a")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "95dc1b7a-47a8-4510-9823-a779f1a6cee0")
+			(uuid "0e2adf6f-fcc5-4239-8fa7-1587d25068bd")
 			(effects
 				(font
 					(size 1 1)
@@ -3610,7 +3610,7 @@
 			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "bf0c97e4-db4e-4533-83f9-831cd2ea6312")
+			(uuid "16afb61e-8c55-45f6-a2c1-3dbaa7418133")
 		)
 	)
 	(footprint "Ivar_footprint_library:IVAR_1206_SMD_R"
@@ -4153,7 +4153,7 @@
 			(at 0 -4.2 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "a7e0525f-1e2c-4113-9028-f1119b352808")
+			(uuid "9dd48287-2c7b-429c-a459-651f2381dc5c")
 			(effects
 				(font
 					(size 1 1)
@@ -4164,7 +4164,7 @@
 		(property "Value" "MountingHole_3.2mm_M3"
 			(at -0.5 5.8 0)
 			(layer "F.Fab")
-			(uuid "449d5001-f9ad-4ba3-92ed-92550e9109d2")
+			(uuid "b6948d7c-19fe-4ffb-bc62-654d99073b86")
 			(effects
 				(font
 					(size 1 1)
@@ -4221,7 +4221,7 @@
 			)
 			(fill none)
 			(layer "Cmts.User")
-			(uuid "b3da11d2-b202-41e1-9ab6-247cb24a5c4b")
+			(uuid "0cb90641-a7f8-4b67-9451-770454542abf")
 		)
 		(fp_circle
 			(center 0 0)
@@ -4232,12 +4232,12 @@
 			)
 			(fill none)
 			(layer "F.CrtYd")
-			(uuid "c6ef4675-4c2c-49ea-bc5e-ee2c25627bdf")
+			(uuid "b124c7ec-7d88-4da3-a53a-f42034b0702d")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "95dc1b7a-47a8-4510-9823-a779f1a6cee0")
+			(uuid "8a7a4c3e-ced3-428d-9877-731d0917aaf5")
 			(effects
 				(font
 					(size 1 1)
@@ -4250,7 +4250,7 @@
 			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "bf0c97e4-db4e-4533-83f9-831cd2ea6312")
+			(uuid "586f0cd6-416e-41e7-8535-b13a610a974a")
 		)
 	)
 	(footprint "Ivar_footprint_library:IVAR_IR"
@@ -6929,7 +6929,7 @@
 			(at 0 -4.2 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "a7e0525f-1e2c-4113-9028-f1119b352808")
+			(uuid "fd31042c-b616-4156-ac34-a7e0e3cb2eaa")
 			(effects
 				(font
 					(size 1 1)
@@ -6940,7 +6940,7 @@
 		(property "Value" "MountingHole_3.2mm_M3"
 			(at 0 4.2 0)
 			(layer "F.Fab")
-			(uuid "449d5001-f9ad-4ba3-92ed-92550e9109d2")
+			(uuid "1a1844fd-5f59-42cc-9800-68ac134f0de3")
 			(effects
 				(font
 					(size 1 1)
@@ -6997,7 +6997,7 @@
 			)
 			(fill none)
 			(layer "Cmts.User")
-			(uuid "b3da11d2-b202-41e1-9ab6-247cb24a5c4b")
+			(uuid "c5f19d90-0ca4-4492-a3e0-e59937e676e0")
 		)
 		(fp_circle
 			(center 0 0)
@@ -7008,12 +7008,12 @@
 			)
 			(fill none)
 			(layer "F.CrtYd")
-			(uuid "c6ef4675-4c2c-49ea-bc5e-ee2c25627bdf")
+			(uuid "835f9ab4-9da7-4a42-9238-a99a2486c013")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "95dc1b7a-47a8-4510-9823-a779f1a6cee0")
+			(uuid "430c81ab-54f6-485a-85b0-49fab71df8ff")
 			(effects
 				(font
 					(size 1 1)
@@ -7026,7 +7026,7 @@
 			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "bf0c97e4-db4e-4533-83f9-831cd2ea6312")
+			(uuid "4223a18a-4f8d-4d6d-94a9-d29676a0198f")
 		)
 	)
 	(footprint "Package_TO_SOT_THT:TO-92_Inline"

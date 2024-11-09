@@ -1,11 +1,11 @@
 #include <Arduino.h>
-#include <IRremote.h>
+//#include <IRremote.h>
 
 int ir_send_pin = 33;
 int ir_recive_pin = 32;
 int ir_send_en_pin = 13;
 
-IRsend irsend;
+//IRsend irsend;
 
 int counter = 0;
 
