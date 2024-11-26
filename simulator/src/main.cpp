@@ -1,8 +1,11 @@
 #include <SFML/Graphics.hpp>
 
+int window_width = 1400;
+int window_height = 800;
+
 int main() {
     // Create a window
-    sf::RenderWindow window(sf::VideoMode(1024, 1024), "Micromouse Simulator");
+    sf::RenderWindow window(sf::VideoMode(window_width, window_height), "Micromouse Simulator");
 
     // Set a default background color
     sf::Color backgroundColor(100, 149, 237); // Cornflower Blue
@@ -18,7 +21,7 @@ int main() {
         return -1; // Ensure you have a font available
     }
 
-    sf::Text text("Click Me", font, 24);
+    sf::Text text("btn", font, 24);
     text.setFillColor(sf::Color::White);
     text.setPosition(350, 290); // Center text in the button
 
