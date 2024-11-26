@@ -9,6 +9,9 @@ const uint16_t SCREEN_HEIGHT = 64;  // OLED display height, in pixels
 
 #define SHOCK_PIN 5
 
+#define I2C_SDA 48
+#define I2C_SCL 47
+
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire);
 
 const uint8_t BASE_CHAR_WIDTH = 5;
@@ -42,6 +45,7 @@ static const unsigned char PROGMEM test_bitmap[] = {
 
 void setup() {
   Serial.begin(115200);
+  delay(1000);
 
   pinMode(SHOCK_PIN, INPUT);
 

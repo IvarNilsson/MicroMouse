@@ -30,6 +30,14 @@ fi
 # TODO: Add explicit python min version and check
 source $VENV_NAME/bin/activate
 python3 --version
+# libsfml-dev
+libsfml_dev=$(apt list -qq libsfml-dev 2>/dev/null)
+if [[ $libsfml_dev == *"[installed]" ]]; then
+    libsfml_dev_version=$(echo "$libsfml_dev" | grep -oP '(?<=libsfml-dev/jammy,now )\d+\.\d+\.\d+')
+    echo "libsfml-dev version $version"
+else
+    echo "libsfml-dev not installed. Use 'sudo apt install libsfml-dev' to install it."
+fi
 
 #
 # Useful aliases
@@ -52,4 +60,4 @@ Welcome to Ethernet Testin and Verification!
 # Cleanup
 #
 unset GIT_ROOT ETHERNET_ROOT TESTS_ROOT
-unset ARDUINO_CLI_VERSION
+unset ARDUINO_CLI_VERSION libsfml_dev libsfml_dev_version
