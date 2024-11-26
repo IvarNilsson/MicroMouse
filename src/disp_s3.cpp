@@ -15,12 +15,12 @@ TwoWire ivar_IC2 = TwoWire(0);
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire);
 
 void setup() {
-  Serial.begin(115200);
+  //Serial.begin(115200);
 
   ivar_IC2.begin(I2C_SDA, I2C_SCL, 400000);
 
   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
-    Serial.println(F("SSD1306 allocation failed"));
+    //Serial.println(F("SSD1306 allocation failed"));
     for (;;)
       ;
   }

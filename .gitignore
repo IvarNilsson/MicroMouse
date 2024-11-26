@@ -2,3 +2,5 @@ run*
 .clangd
 *.zip
 a.out
+.cache
+.venv
