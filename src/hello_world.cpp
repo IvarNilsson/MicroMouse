@@ -1,3 +1,4 @@
+#include <Arduino.h>
 
 void setup() {
   Serial.begin(115200);
@@ -8,6 +9,6 @@ void setup() {
 }
 
 void loop() {
-  Serial.println("Hello, World! IVAR :)");
+  Serial.println("Hello, World! :)");
   delay(1000);
 }

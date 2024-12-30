@@ -4,19 +4,19 @@
       "name": "Linux",
       "includePath": [
         "${workspaceFolder}/**",
-        "~/.arduino15/packages/esp32/hardware/esp32/3.0.5/cores/esp32/", // Arduino.h
-        "~/.arduino15/packages/esp32/hardware/esp32/3.0.5/variants/esp32", // dependency pins_arduino.h
+        "~/.arduino15/packages/esp32/hardware/esp32/*/cores/esp32/", // Arduino.h
+        "~/.arduino15/packages/esp32/hardware/esp32/*/variants/esp32", // dependency pins_arduino.h
 
-        "~/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/include/**", //ALOT of dependencies!
+        "~/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-632e0c2a/esp32s3/**", //FreeRTOS.h and sdkconfig.h and more
+        "~/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-632e0c2a/esp32s3/include/xtensa/include/xtensa/tmp_ivar/", // ../hal.h
 
-        "~/.arduino15/packages/esp32/tools/esp32-arduino-libs/idf-release_v5.1-33fbade6/esp32/qio_qspi/include", // these arre unknown :)
         "~/.arduino15/packages/esp32/tools/esp-x32/2302/xtensa-esp32-elf/include/",
         "~/.arduino15/packages/esp32/tools/esp-x32/2302/xtensa-esp32-elf/include/c++/12.2.0",
         "~/.arduino15/packages/esp32/tools/esp-x32/2302/xtensa-esp32-elf/include/c++/12.2.0/xtensa-esp32-elf/",
 
         "~/Arduino/libraries/**", // Extra installed libaries
-        "~/.arduino15/packages/esp32/hardware/esp32/3.0.5/libraries/SPI/src",
-        "~/.arduino15/packages/esp32/hardware/esp32/3.0.5/libraries/Wire/src",
+        "~/.arduino15/packages/esp32/hardware/esp32/*/libraries/SPI/src",
+        "~/.arduino15/packages/esp32/hardware/esp32/*/libraries/Wire/src",
 
         // SFML (grapics and more)
         "/usr/include/"

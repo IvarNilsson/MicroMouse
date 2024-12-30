@@ -1,11 +1,7 @@
+# python requermnets (auto installed in .activate.sh)
 numpy
 scipy
 matplotlib
 colorama
 sounddevice
 pygame
-
-#vunit-hdl>=4.6.0
-#GHDL>=2.0.0
-#GTKWave
-#Vivado>=2017.4
