@@ -4,3 +4,6 @@ run/*
 a.out
 .cache
 .venv
+Clock_V1*
+cad/Clock/Clock_v1*
+.vscode/settings.json

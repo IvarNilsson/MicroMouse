@@ -55,32 +55,37 @@ void setup() {
   }
 
   // display.display();
-  // delay(2000);
+  delay(2000);
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(WHITE);
   display.setCursor(0, 0);
-  display.println("Hello world!");
+  display.println("Hello world!!");
   display.display();
-  // delay(1500);
-  // display.clearDisplay();
+  delay(1500);
+  display.clearDisplay();
+  Serial.println("START 0");
+
   // Serial.println(2 * BORDER + 5 * CHAR_WIDTH + 2 * SPACE -
   //                NEGATIVE_SPACE_BEFORE - NEGATIVE_SPACE_AFTER);
 }
 
 void loop() {
   // CLOCK:
-  display.drawChar(CHAR3_X, CHAR_Y, ':', 1, 0, CHAR_SIZE);
-  display.drawChar(CHAR1_X, CHAR_Y, '2', 1, 0, CHAR_SIZE);
-  display.drawChar(CHAR2_X, CHAR_Y, '3', 1, 0, CHAR_SIZE);
-  display.drawChar(CHAR4_X, CHAR_Y, '5', 1, 0, CHAR_SIZE);
-  display.drawChar(CHAR5_X, CHAR_Y, '9', 1, 0, CHAR_SIZE);
+  uint8_t shock_value = digitalRead(SHOCK_PIN);
+  if (shock_value == 1) {
+    display.drawChar(CHAR3_X, CHAR_Y, ':', 1, 0, CHAR_SIZE);
+    display.drawChar(CHAR1_X, CHAR_Y, '2', 1, 0, CHAR_SIZE);
+    display.drawChar(CHAR2_X, CHAR_Y, '3', 1, 0, CHAR_SIZE);
+    display.drawChar(CHAR4_X, CHAR_Y, '5', 1, 0, CHAR_SIZE);
+    display.drawChar(CHAR5_X, CHAR_Y, '9', 1, 0, CHAR_SIZE);
+  }
 
   // BORDER:
   display.drawRoundRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 10, 1);
 
   // display.drawBitmap(0, 0, test_bitmap, 128, 4, 1);
   display.display();
-  delay(2000);
+  delay(200);
   display.clearDisplay();
 }

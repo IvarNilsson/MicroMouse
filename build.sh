@@ -24,10 +24,10 @@ if ! [ -z "$2" ]; then
     cp src/$2.cpp run/$1
 fi
 
-BOARD="esp32:esp32:esp32"
-#BOARD="esp32:esp32:esp32s3:CDCOnBoot=cdc"
-PORT="/dev/ttyUSB0" 
-#PORT="/dev/ttyACM0" 
+#BOARD="esp32:esp32:esp32"
+BOARD="esp32:esp32:esp32s3"
+#PORT="/dev/ttyUSB0" 
+PORT="/dev/ttyACM0" 
 
 arduino-cli compile --fqbn $BOARD run/$1/$1.ino
 arduino-cli upload -p $PORT --fqbn $BOARD run/$1/$1.ino
