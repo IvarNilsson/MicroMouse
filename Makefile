@@ -6,6 +6,6 @@ help:
 
 simulator:
 	cd simulator/src; \
-	g++ main.cpp -lsfml-graphics -lsfml-window -lsfml-system; \
+	g++ main.cpp mouse.cpp -lsfml-graphics -lsfml-window -lsfml-system; \
 	./a.out; \
 	rm a.out

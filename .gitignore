@@ -7,3 +7,4 @@ a.out
 Clock_V1*
 cad/Clock/Clock_v1*
 .vscode/settings.json
+simulator/src/maze_to_file.txt

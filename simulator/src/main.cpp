@@ -1,8 +1,14 @@
 #include <bits/stdc++.h>
 
 #include <SFML/Graphics.hpp>
+#include <fstream>
+#include <iostream>
+
+#include "mouse.h"
 
 using namespace std;
+
+typedef struct point_s Point;
 
 int maze_square_width = 100;
 int maze_wall_width = 10;
@@ -12,46 +18,10 @@ int maze_width = (maze_square_width + maze_wall_width) * 16 + maze_wall_width;
 int window_width = maze_width + 400;
 int window_height = maze_width;
 
-int maze_matrix_horizontal[17][16] = {
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 0, -for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 1, -for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 2, -for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 3, -for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 4, -for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 5, -for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 6, -for my formatter
-    1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1,  // row 7, -for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 8, -for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 9, -for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 10, for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 11, for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 12, for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 13, for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 14, for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 15, for my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1   // row 16, for my formatter
-};
-//  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15
+//                        row col
+int maze_matrix_horizontal[17][16] = {};
 
-int maze_matrix_vertical[16][17] = {
-    0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 0, r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 1, r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 2, r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 3, r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 4, r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 5, r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 6, r my formatter
-    1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 7, r my formatter
-    1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 8, r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 9, r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 10,r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 11,r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 12,r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 13,r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 14,r my formatter
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // row 15,r my formatter
-};
-//  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16
+int maze_matrix_vertical[16][17] = {};
 
 sf::RenderWindow window(sf::VideoMode(window_width, window_height),
                         "Micromouse Simulator");
@@ -91,69 +61,67 @@ void maze_from_file() {
     for (int i = 0; i < s.size(); i++) {
       if (row % 2 == 1 && (i - 2) % 4 == 0) {
         if (s[i] == '-') {
-          // printf("-");
-          cout << i << "- ";
-          // cout << "r" << row << ",c" << i << "    ";
           maze_matrix_horizontal[(row - 1) / 2][(i - 2) / 4] = 1;
-          // cout << "r" << ((row - 1) / 2) << ",c" << (i - 2) / 4 << "   ";
         } else {
-          cout << i << "  ";
-
-          // printf(" ");
           maze_matrix_horizontal[(row - 1) / 2][(i - 2) / 4] = 0;
         }
 
       } else if (row % 2 == 0 && i % 4 == 0) {
         if (s[i] == 'I') {
-          // cout << "I";
-          // cout << i << "| ";
-          cout << "r" << row << ",c" << i << "    ";
           maze_matrix_vertical[(row / 2) - 1][i / 4] = 1;
         } else {
-          // printf(" ");
-          // cout << i << "  ";
           maze_matrix_vertical[(row / 2) - 1][i / 4] = 0;
         }
       }
     }
-    printf("\n");
     row++;
   }
 
-  for (int r = 0; r < 17; r++) {
-    for (int c = 0; c < 16; c++) {
-      cout << maze_matrix_horizontal[r][c];
-    }
-    printf("\n");
+  f.close();
+}
+
+void maze_to_file() {
+  ofstream f("/home/ivar/Projects/MicroMouse/simulator/src/maze_to_file.txt");
+
+  if (!f.is_open()) {
+    printf("Error opening the file!");
+    return;
   }
 
-  printf("\n");
-  printf("\n");
+  for (int row = 0; row < 33; row++) {
+    for (int col = 0; col < 65; col++) {
+      // ---
+      if (row % 2 == 0 && (col - 2) % 4 == 0) {
+        if (maze_matrix_horizontal[row / 2][(col - 2) / 4] == 1) {
+          f << "---";
+        } else {
+          f << "   ";
+        }
 
-  for (int r = 0; r < 16; r++) {
-    for (int c = 0; c < 17; c++) {
-      cout << maze_matrix_vertical[r][c];
+        // I
+      } else if (row % 2 == 1 && (col) % 4 == 0) {
+        if (maze_matrix_vertical[row / 2][col / 4] == 1) {
+          f << "I";
+        } else {
+          f << " ";
+        }
+
+        // +
+      } else if (row % 2 == 0 && col % 4 == 0) {
+        f << "+";
+
+        // " "
+      } else if (row % 2 == 1) {
+        f << " ";
+      }
     }
-    printf("\n");
+    f << "\n";
   }
 
   f.close();
 }
 
 void draw_maze() {
-  // maze eges (big square with hole in it)
-  // sf::RectangleShape edge_horizontal(sf::Vector2f(maze_width,
-  // maze_wall_width)); sf::RectangleShape
-  // edge_vertical(sf::Vector2f(maze_wall_width, maze_width));
-  // edge_horizontal.setFillColor(maze_wall_red);
-  // edge_vertical.setFillColor(maze_wall_red);
-  // window.draw(edge_horizontal);
-  // window.draw(edge_vertical);
-  // edge_horizontal.setPosition(0, maze_width - maze_wall_width);
-  // edge_vertical.setPosition(maze_width - maze_wall_width, 0);
-  // window.draw(edge_horizontal);
-  // window.draw(edge_vertical);
-
   // maze corners
   sf::RectangleShape maze_corner(
       sf::Vector2f(maze_wall_width, maze_wall_width));
@@ -188,6 +156,7 @@ void draw_maze() {
             (row) * (maze_square_width + maze_wall_width));
         window.draw(wall_horizontal);
       } else {
+        // add a outline?
       }
     }
   }
@@ -205,9 +174,66 @@ void draw_maze() {
             row * (maze_square_width + maze_wall_width) + maze_wall_width);
         window.draw(wall_vertical);
       } else {
+        // add a outline?
       }
     }
   }
+}
+
+void draw_mouse(Point pos) {
+  int mouse_size = 100;
+  sf::RectangleShape mouse(sf::Vector2f(mouse_size, mouse_size));
+  mouse.setFillColor(sf::Color::Blue);
+  int zero_y = (maze_wall_width + maze_square_width) * 15 + maze_wall_width;
+  int zero_x = maze_wall_width;
+  int mouse_x = zero_x + (maze_wall_width + maze_square_width) * pos.x;
+  int mouse_y = zero_y + (maze_wall_width + maze_square_width) * pos.y * -1;
+  mouse.setPosition(mouse_x, mouse_y);  // this is wrong
+  window.draw(mouse);
+}
+
+Surronding calculate_surronding(Point pos, int maze_matrix_horizontal[17][16],
+                                int maze_matrix_vertical[16][17]) {
+  Surronding s;
+
+  cout << maze_matrix_horizontal;
+
+  // up
+  s.up = maze_matrix_horizontal[15 - pos.y][pos.x];
+  s.down = maze_matrix_horizontal[16 - pos.y][pos.x];
+  s.left = maze_matrix_vertical[15 - pos.y][pos.x];
+  s.right = maze_matrix_vertical[15 - pos.y][pos.x + 1];
+
+  return s;
+}
+
+void print_horizontal_matrix(int maze_matrix_horizontal[17][16]) {
+  cout << "Printing maze_matrix_horizontal" << endl;
+  for (int row = 0; row < 17; row++) {
+    for (int col = 0; col < 16; col++) {
+      cout << maze_matrix_horizontal[row][col] << " ";
+    }
+    cout << endl;
+  }
+}
+
+void print_vertical_matrix(int maze_matrix_vertical[16][17]) {
+  cout << endl << "Printing maze_matrix_vertical" << endl;
+  for (int row = 0; row < 16; row++) {
+    for (int col = 0; col < 17; col++) {
+      cout << maze_matrix_vertical[row][col] << " ";
+    }
+    cout << endl;
+  }
+}
+
+void print_surronding(Surronding s) {
+  cout << endl;
+  cout << "       up   " << endl;
+  cout << "       " << s.up << "   " << endl;
+  cout << "left " << s.left << "   " << s.right << " rihgt" << endl;
+  cout << "       " << s.down << "   " << endl;
+  cout << "      down   " << endl << endl;
 }
 
 int main() {
@@ -235,6 +261,9 @@ int main() {
   */
 
   maze_from_file();
+  // maze_to_file();
+  // Mouse mouse = create_mouse();
+  create_mouse();
 
   // Main loop
   while (window.isOpen()) {
@@ -277,9 +306,20 @@ int main() {
 
     draw_background();
     draw_maze();
+    draw_mouse(get_pos());
+
+    Surronding s;
+    s = calculate_surronding(get_pos(), maze_matrix_horizontal,
+                             maze_matrix_vertical);
+    print_surronding(s);
+    move_up(s);
+
+    // print_horizontal_matrix(maze_matrix_horizontal);
+    // print_vertical_matrix(maze_matrix_vertical);
 
     // Display the contents of the window
     window.display();
+    sleep(1);
   }
 
   return 0;
