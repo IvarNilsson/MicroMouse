@@ -4,269 +4,112 @@
 #include <fstream>
 #include <iostream>
 
+#include "debug.h"
 #include "mouse.h"
+#include "solver.h"
+#include "structs.h"
+#include "window.h"
 
 using namespace std;
-
-typedef struct point_s Point;
-
-int maze_square_width = 100;
-int maze_wall_width = 10;
-
-int maze_width = (maze_square_width + maze_wall_width) * 16 + maze_wall_width;
-
-int window_width = maze_width + 400;
-int window_height = maze_width;
 
 //                        row col
 int maze_matrix_horizontal[17][16] = {};
 
 int maze_matrix_vertical[16][17] = {};
 
-sf::RenderWindow window(sf::VideoMode(window_width, window_height),
-                        "Micromouse Simulator");
-
-sf::Color maze_area_gray(100, 100, 100);
-sf::Color control_panel_gray(200, 200, 200);
-sf::Color maze_wall_red(100, 0, 0);
-
-void draw_background() {
-  sf::RectangleShape maze_area(sf::Vector2f(maze_width, maze_width));
-  sf::RectangleShape control_panel(
-      sf::Vector2f(window_width - maze_width, window_height));
-  maze_area.setPosition(0, 0);
-  control_panel.setPosition(maze_width, 0);
-  maze_area.setFillColor(sf::Color::Green);
-
-  maze_area.setFillColor(maze_area_gray);
-  control_panel.setFillColor(control_panel_gray);
-
-  window.draw(maze_area);
-  window.draw(control_panel);
-}
-
-void maze_from_file() {
-  ifstream f("/home/ivar/Projects/MicroMouse/simulator/src/save_maze_1.txt");
-
-  if (!f.is_open()) {
-    printf("Error opening the file!");
-    return;
-  }
-
-  string s;
-  int row = 1;
-  while (getline(f, s)) {
-    // cout << s << endl;
-
-    for (int i = 0; i < s.size(); i++) {
-      if (row % 2 == 1 && (i - 2) % 4 == 0) {
-        if (s[i] == '-') {
-          maze_matrix_horizontal[(row - 1) / 2][(i - 2) / 4] = 1;
-        } else {
-          maze_matrix_horizontal[(row - 1) / 2][(i - 2) / 4] = 0;
-        }
-
-      } else if (row % 2 == 0 && i % 4 == 0) {
-        if (s[i] == 'I') {
-          maze_matrix_vertical[(row / 2) - 1][i / 4] = 1;
-        } else {
-          maze_matrix_vertical[(row / 2) - 1][i / 4] = 0;
-        }
-      }
-    }
-    row++;
-  }
-
-  f.close();
-}
-
-void maze_to_file() {
-  ofstream f("/home/ivar/Projects/MicroMouse/simulator/src/maze_to_file.txt");
-
-  if (!f.is_open()) {
-    printf("Error opening the file!");
-    return;
-  }
-
-  for (int row = 0; row < 33; row++) {
-    for (int col = 0; col < 65; col++) {
-      // ---
-      if (row % 2 == 0 && (col - 2) % 4 == 0) {
-        if (maze_matrix_horizontal[row / 2][(col - 2) / 4] == 1) {
-          f << "---";
-        } else {
-          f << "   ";
-        }
-
-        // I
-      } else if (row % 2 == 1 && (col) % 4 == 0) {
-        if (maze_matrix_vertical[row / 2][col / 4] == 1) {
-          f << "I";
-        } else {
-          f << " ";
-        }
-
-        // +
-      } else if (row % 2 == 0 && col % 4 == 0) {
-        f << "+";
-
-        // " "
-      } else if (row % 2 == 1) {
-        f << " ";
-      }
-    }
-    f << "\n";
-  }
-
-  f.close();
-}
-
-void draw_maze() {
-  // maze corners
-  sf::RectangleShape maze_corner(
-      sf::Vector2f(maze_wall_width, maze_wall_width));
-  maze_corner.setFillColor(sf::Color::White);
-  for (int row = 0; row < 17; row++) {
-    for (int col = 0; col < 17; col++) {
-      maze_corner.setPosition(col * (maze_square_width + maze_wall_width),
-                              row * (maze_square_width + maze_wall_width));
-      window.draw(maze_corner);
-      if (row == 8 && col == 8) {
-        maze_corner.setFillColor(sf::Color::Green);
-        window.draw(maze_corner);
-        maze_corner.setFillColor(sf::Color::White);
-      }
-    }
-  }
-
-  // horizontal walls
-  sf::RectangleShape wall_horizontal(
-      sf::Vector2f(maze_square_width, maze_wall_width));
-  // sf::RectangleShape no_wall(sf::Vector2f(maze_square_width,
-  // maze_wall_width));
-  wall_horizontal.setFillColor(maze_wall_red);
-  // no_wall.setFillColor(maze_area_gray);
-  // no_wall.setOutlineColor(maze_wall_red);
-
-  for (int row = 0; row < 17; row++) {
-    for (int col = 0; col < 16; col++) {
-      if (maze_matrix_horizontal[row][col] == 1) {
-        wall_horizontal.setPosition(
-            col * (maze_square_width + maze_wall_width) + maze_wall_width,
-            (row) * (maze_square_width + maze_wall_width));
-        window.draw(wall_horizontal);
-      } else {
-        // add a outline?
-      }
-    }
-  }
-
-  // vertical walls
-  sf::RectangleShape wall_vertical(
-      sf::Vector2f(maze_wall_width, maze_square_width));
-  wall_vertical.setFillColor(maze_wall_red);
-
-  for (int row = 0; row < 16; row++) {
-    for (int col = 0; col < 17; col++) {
-      if (maze_matrix_vertical[row][col] == 1) {
-        wall_vertical.setPosition(
-            (col) * (maze_square_width + maze_wall_width),
-            row * (maze_square_width + maze_wall_width) + maze_wall_width);
-        window.draw(wall_vertical);
-      } else {
-        // add a outline?
-      }
-    }
-  }
-}
-
-void draw_mouse(Point pos) {
-  int mouse_size = 100;
-  sf::RectangleShape mouse(sf::Vector2f(mouse_size, mouse_size));
-  mouse.setFillColor(sf::Color::Blue);
-  int zero_y = (maze_wall_width + maze_square_width) * 15 + maze_wall_width;
-  int zero_x = maze_wall_width;
-  int mouse_x = zero_x + (maze_wall_width + maze_square_width) * pos.x;
-  int mouse_y = zero_y + (maze_wall_width + maze_square_width) * pos.y * -1;
-  mouse.setPosition(mouse_x, mouse_y);  // this is wrong
-  window.draw(mouse);
-}
-
-Surronding calculate_surronding(Point pos, int maze_matrix_horizontal[17][16],
+Surronding calculate_surronding(Mouse_Position pos,
+                                int maze_matrix_horizontal[17][16],
                                 int maze_matrix_vertical[16][17]) {
-  Surronding s;
+  Surronding s_pre_direction;
+  Surronding s_post_direction;
 
-  cout << maze_matrix_horizontal;
+  s_pre_direction.up = maze_matrix_horizontal[15 - pos.y][pos.x];
+  s_pre_direction.down = maze_matrix_horizontal[16 - pos.y][pos.x];
+  s_pre_direction.right = maze_matrix_vertical[15 - pos.y][pos.x + 1];
+  s_pre_direction.left = maze_matrix_vertical[15 - pos.y][pos.x];
 
-  // up
-  s.up = maze_matrix_horizontal[15 - pos.y][pos.x];
-  s.down = maze_matrix_horizontal[16 - pos.y][pos.x];
-  s.left = maze_matrix_vertical[15 - pos.y][pos.x];
-  s.right = maze_matrix_vertical[15 - pos.y][pos.x + 1];
-
-  return s;
-}
-
-void print_horizontal_matrix(int maze_matrix_horizontal[17][16]) {
-  cout << "Printing maze_matrix_horizontal" << endl;
-  for (int row = 0; row < 17; row++) {
-    for (int col = 0; col < 16; col++) {
-      cout << maze_matrix_horizontal[row][col] << " ";
-    }
-    cout << endl;
+  if (pos.directon == 0) {
+    s_post_direction = s_pre_direction;
+  } else if (pos.directon == 1) {
+    s_post_direction.up = s_pre_direction.down;
+    s_post_direction.down = s_pre_direction.up;
+    s_post_direction.right = s_pre_direction.left;
+    s_post_direction.left = s_pre_direction.right;
+  } else if (pos.directon == 2) {
+    s_post_direction.up = s_pre_direction.right;
+    s_post_direction.down = s_pre_direction.left;
+    s_post_direction.right = s_pre_direction.down;
+    s_post_direction.left = s_pre_direction.up;
+  } else if (pos.directon == 3) {
+    s_post_direction.up = s_pre_direction.left;
+    s_post_direction.down = s_pre_direction.right;
+    s_post_direction.right = s_pre_direction.up;
+    s_post_direction.left = s_pre_direction.down;
   }
+
+  return s_post_direction;
 }
 
-void print_vertical_matrix(int maze_matrix_vertical[16][17]) {
-  cout << endl << "Printing maze_matrix_vertical" << endl;
-  for (int row = 0; row < 16; row++) {
-    for (int col = 0; col < 17; col++) {
-      cout << maze_matrix_vertical[row][col] << " ";
+Surronding calculate_surronding_pre_direction(
+    Mouse_Position pos, int maze_matrix_horizontal[17][16],
+    int maze_matrix_vertical[16][17]) {
+  Surronding s_pre_direction;
+
+  s_pre_direction.up = maze_matrix_horizontal[15 - pos.y][pos.x];
+  s_pre_direction.down = maze_matrix_horizontal[16 - pos.y][pos.x];
+  s_pre_direction.right = maze_matrix_vertical[15 - pos.y][pos.x + 1];
+  s_pre_direction.left = maze_matrix_vertical[15 - pos.y][pos.x];
+
+  return s_pre_direction;
+}
+
+int counteract_rotation(int direction, int next_move) {
+  if (direction == 0) {
+    return next_move;
+  } else if (direction == 1) {
+    if (next_move == 0) {
+      return 1;
+    } else if (next_move == 1) {
+      return 0;
+    } else if (next_move == 2) {
+      return 3;
+    } else if (next_move == 3) {
+      return 2;
     }
-    cout << endl;
+  } else if (direction == 2) {
+    if (next_move == 0) {
+      return 2;
+    } else if (next_move == 1) {
+      return 3;
+    } else if (next_move == 2) {
+      return 1;
+    } else if (next_move == 3) {
+      return 0;
+    }
+  } else if (direction == 3) {
+    if (next_move == 0) {
+      return 3;
+    } else if (next_move == 1) {
+      return 2;
+    } else if (next_move == 2) {
+      return 0;
+    } else if (next_move == 3) {
+      return 1;
+    }
   }
-}
-
-void print_surronding(Surronding s) {
-  cout << endl;
-  cout << "       up   " << endl;
-  cout << "       " << s.up << "   " << endl;
-  cout << "left " << s.left << "   " << s.right << " rihgt" << endl;
-  cout << "       " << s.down << "   " << endl;
-  cout << "      down   " << endl << endl;
+  return 99;
 }
 
 int main() {
   // Create a window
-
-  /*
-    // Set a default background color
-    sf::Color backgroundColor(100, 149, 237);  // Cornflower Blue
-
-    // Create a simple button (rectangle shape)
-    sf::RectangleShape button(sf::Vector2f(200, 50));
-    button.setFillColor(sf::Color::Green);
-    button.setPosition(300, 275);  // Position it in the center of the window
-
-    // Create a text label for the button
-    sf::Font font;
-    if (!font.loadFromFile(
-            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")) {
-      return -1;  // Ensure you have a font available
-    }
-
-    sf::Text text("btn", font, 24);
-    text.setFillColor(sf::Color::White);
-    text.setPosition(350, 290);  // Center text in the button
-  */
-
-  maze_from_file();
-  // maze_to_file();
+  maze_from_file(maze_matrix_horizontal, maze_matrix_vertical);
   // Mouse mouse = create_mouse();
   create_mouse();
 
   // Main loop
-  while (window.isOpen()) {
+  while (get_window_open()) {
+    window_event();
+
     /*
     sf::Event event;
     while (window.pollEvent(event)) {
@@ -296,30 +139,43 @@ int main() {
     // sf::Text line("btn", font, 24);
 
     */
-
-    sf::Event event;
-    while (window.pollEvent(event)) {
-      if (event.type == sf::Event::Closed) {
-        window.close();
+    Mouse_Position mouse_position = mouse_get_pos();
+    draw_background();
+    draw_maze(maze_matrix_horizontal, maze_matrix_vertical);
+    draw_mouse(mouse_position);
+    if (mouse_position.x == 7) {
+      if (mouse_position.y == 8) {
+        std::this_thread::sleep_for(std::chrono::microseconds(100000 * 1000));
       }
     }
 
-    draw_background();
-    draw_maze();
-    draw_mouse(get_pos());
+    Surronding s = calculate_surronding(mouse_position, maze_matrix_horizontal,
+                                        maze_matrix_vertical);
+    Surronding s_no_rotation = calculate_surronding_pre_direction(
+        mouse_position, maze_matrix_horizontal, maze_matrix_vertical);
 
-    Surronding s;
-    s = calculate_surronding(get_pos(), maze_matrix_horizontal,
-                             maze_matrix_vertical);
     print_surronding(s);
-    move_up(s);
+
+    int next_move = next_solver_move(s);
+    // counteract rotation
+    next_move = counteract_rotation(mouse_position.directon, next_move);
+
+    if (next_move == 0) {
+      move_up(s_no_rotation);
+    } else if (next_move == 1) {
+      move_down(s_no_rotation);
+    } else if (next_move == 2) {
+      move_right(s_no_rotation);
+    } else if (next_move == 3) {
+      move_left(s_no_rotation);
+    }
 
     // print_horizontal_matrix(maze_matrix_horizontal);
     // print_vertical_matrix(maze_matrix_vertical);
 
     // Display the contents of the window
-    window.display();
-    sleep(1);
+    window_display();
+    std::this_thread::sleep_for(std::chrono::microseconds(100 * 1000));
   }
 
   return 0;
